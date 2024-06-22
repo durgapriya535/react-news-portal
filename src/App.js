@@ -5,7 +5,7 @@ import ArticlePage from './Pages/ArticlePage';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/react-news-portal">
       <div className="App">
         <Routes>
           <Route exact path="/" element={<HomePage/>} />
