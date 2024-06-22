@@ -9,7 +9,7 @@ const Navbar = ({ categories, selectedCategory, onCategoryChange, onSearch }) =>
 
   return (
     <nav className="navbar">
-      <h1>React News Portal</h1>
+      <h1>My News Portal</h1>
       <select value={selectedCategory} onChange={(e) => onCategoryChange(e.target.value)}>
         {categories.map((category) => (
           <option key={category} value={category}>
