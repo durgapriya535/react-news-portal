@@ -1,38 +1,228 @@
-.App {
-  text-align: center;
+/* General Styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Navbar Styles */
+.navbar {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 1rem 2rem;
+  background-color: #007bff;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  flex:1 100%;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.navbar select, .navbar input, .navbar button {
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 5px;
+  flex:1;
+}
+
+.navbar select{
+  flex: 2;
+}
+
+.navbar input {
+  flex: 4;
+}
+
+.navbar button {
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.navbar button:hover {
+  background-color: #218838;
+}
+
+/* Article List Styles */
+.article-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Article Card Styles */
+.article-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: white;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+}
+
+.article-card img {
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.article-card h2 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.article-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.article-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.article-card a:hover {
+  background-color: #0056b3;
+}
+
+.article-card button{
+  display: inline-block;
+  margin: 1rem 0 0 1rem;
+  padding: 0.5rem 1rem;
+  color: gold;
+  background-color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  border-width: 1px;
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
   }
-  to {
-    transform: rotate(360deg);
+
+  .navbar select, .navbar input, .navbar button {
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar h1 {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+}
+
+/* Article Detail Styles */
+.article-detail {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.article-detail h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.article-detail img {
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.article-detail p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.article-detail a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.article-detail a:hover {
+  background-color: #0056b3;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.pagination button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .article-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar h1 {
+    margin-bottom: 1rem;
+  }
+
+  .article-list {
+    grid-template-columns: 1fr;
   }
 }
